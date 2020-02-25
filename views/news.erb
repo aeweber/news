@@ -22,22 +22,35 @@
   </head>
   <body>
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="row mt-1">
+            <div class="col-sm-4 text-center">
+            <i class="fas fa-search-location"></i>
+            </div>
+            <div class="col-sm-4 text-center">
+            <i class="far fa-newspaper"></i>
+            </div>
+            <div class="col-sm-4 text-center">
+            <i class="fas fa-sun"></i>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <div class="container mt-5">
       <h1>The News</h1>
     <p>
       <% for news in @headlines_titles %>
-        <div class="container mt-5">
+        <div class="news_titles">
             <%= news["title"] %>
+        </div>
+        <div class="news_urls">
             <%= news["url"] %>
         </div>
       <% end %>
     </p>
       
-    <h2>Coordinates</h2>
-    <p>
-      Your location's coordinates are <%= @lat %> <%= @lng %>
-      </p>
-    
     <h2>The weather in <%= @location %></h2>
     <p>
       In <%= @location %>, it is currently <%= @current_temperature %> degrees and <%= @current_conditions.downcase %>
@@ -47,16 +60,36 @@
     </p>
     <p>
       <% for day in @daily_forecast %>
-        <div class="container mt-5">
+    
+    <div class="container mt-5">
             A high temperature of <%= day["temperatureHigh"] %> degrees and <%= day["summary"] %>
         </div>
       <% end %>    
-
-    <p>
-        <a href="/" class="btn btn-primary">Try again!</a>
-    </p>
     </div>
 
+    <div class="container mt-5">
+    <h2>Coordinates and Map</h2>
+    <p>
+      The coordinates of the location you typed are <%= @lat %>, <%= @lng %>
+    </p>
+    <div class="container-fluid"
+        <div class=row>
+        <iframe
+            width="600"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+            &q=<%= @lat_lng %>&zoom=8" allowfullscreen>
+        </iframe>
+        </div>
+    </div>
+    </div>
+    
+    <div class="container mt-5">
+    <p>
+        <a href="/" class="btn btn-primary">Try another location!</a>
+    </p>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

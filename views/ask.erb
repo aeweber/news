@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
@@ -22,15 +22,35 @@
   </head>
   <body>
 
+  <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <div class="row mt-1">
+            <div class="col-sm-4 text-center">
+            <i class="fas fa-search-location"></i>
+            </div>
+            <div class="col-sm-4 text-center">
+            <i class="far fa-newspaper"></i>
+            </div>
+            <div class="col-sm-4 text-center">
+            <i class="fas fa-sun"></i>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <div class="container mt-5">
-      <h1>Ask</h1>
+      <h1>Location request</h1>
+    </div>
+
+    <div class="container mt-5">
+      <h2>Enter your location and find the general news and the local weather</h2>
     </div>
 
     <div class="container mt-5">
         <form action="/news">
-            <label>Enter your location:</label>
+            <label>Enter your location here:</label>
             <input type="text" name="location">
-            <button type="submit" class="btn btn-primary">Go there</submit>
+            <button type="submit" class="btn btn-success">Go there</submit>
         </form>
     <div>
 
