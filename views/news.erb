@@ -18,21 +18,39 @@
     <!-- Your own CSS -->
     <link rel="stylesheet" href="/styles.css">
 
-    <title>Ask</title>
+    <title>News</title>
   </head>
   <body>
 
     <div class="container mt-5">
-      <h1>Ask</h1>
-    </div>
+      <h1>The News</h1>
+    <p>
+      
+    </p>
+      
+    <h2>Coordinates</h2>
+    <p>
+      Your location's coordinates are <%= @lat %> <%= @lng %>
+      </p>
+    
+    <h2>The weather in <%= @location %></h2>
+    <p>
+      In <%= @location %>, it is currently <%= @current_temperature %> degrees and <%= @current_conditions.downcase %>
+    </p>
+    <p>
+      Extended forecast:
+    </p>
+    <p>
+      <% for day in @daily_forecast %>
+        <div class="container mt-5">
+            A high temperature of <%= day["temperatureHigh"] %> degrees and <%= day["summary"] %>
+        </div>
+      <% end %>    
 
-    <div class="container mt-5">
-        <form action="/news">
-            <label>Enter your location:</label>
-            <input type="text" name="location">
-            <button type="submit" class="btn btn-primary">Go there</submit>
-        </form>
-    <div>
+    <p>
+        <a href="/" class="btn btn-primary">Try again!</a>
+    </p>
+    </div>
 
 
     <!-- Optional JavaScript -->
