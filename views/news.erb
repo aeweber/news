@@ -25,7 +25,12 @@
     <div class="container mt-5">
       <h1>The News</h1>
     <p>
-      
+      <% for news in @headlines_titles %>
+        <div class="container mt-5">
+            <%= news["title"] %>
+            <%= news["url"] %>
+        </div>
+      <% end %>
     </p>
       
     <h2>Coordinates</h2>

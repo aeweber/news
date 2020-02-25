@@ -8,6 +8,7 @@ before { puts "Parameters: #{params}" }
 
 # enter your Dark Sky API key here
 ForecastIO.api_key = "c54805539b0bda883ac19578b12383dc"
+url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=2b24fb4f120746c5bd6a81a21b2f8643"
 
 get "/" do
   # show a view that asks for the location
@@ -15,6 +16,8 @@ get "/" do
 end
 
 get "/news" do
+    @news = HTTParty.get(url).parsed_response.to_hash
+    @headlines_titles = @news["articles"]
     @location = params["location"]
   results = Geocoder.search(params["location"])
     lat_lng = results.first.coordinates
